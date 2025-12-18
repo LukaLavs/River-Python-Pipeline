@@ -15,6 +15,7 @@ It enables expressive, declarative data flows that read left-to-right like a DSL
 ## Example: 
 
 ```python
+from river import __, _
 x, y, z = 3, [1, 2, 3], pd.DataFrame({"beautiful_column": [1, 2, 3, 5]})
 example1 = (y >> _(sum)@[__] ) == None
 example2 = x >> _(sum)@[[__, __, __, __]] == None
