@@ -1,6 +1,6 @@
 # **River** (*Python Pipeline*)
 
-## Descriptioin 
+## Description
 
 **River** is a lightweight Python pipeline abstraction that lets you compose transformations using operators.
 
@@ -20,8 +20,12 @@ x, y, z = 3, [1, 2, 3], pd.DataFrame({"beautiful_column": [1, 2, 3, 5]})
 example1 = (y >> _(sum)@[__] ) == None
 example2 = x >> _(sum)@[[__, __, __, __]] == None
 example3 = (
-    z >> _(pd.concat)
-    @[[z, __]]@{"axis": 0}
+    [1,2,3,4,5,6,7,8,9]
+    >> _(filter)@[(lambda x: x % 2 == 0), __]
+    >> _(list)@[__]
+    >> _(map)@[(lambda x: x * x), __]
+    >> _(list)@[__]
+    >> _(sum)@[__]
     == None
 )
 ```
